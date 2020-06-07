@@ -85,7 +85,6 @@ chmod +x ./build1.py
 chmod +x ./build2.py
 cd /var/oscar/web
 
-
 echo
 echo "Oscar needs a TCP port for a web server. I can use port 80, but"
 echo "that is some pretty prime real estate. You can enter any valid"
@@ -100,7 +99,9 @@ check_exit_status
 npm install
 check_exit_status
 
+cd /etc/oscar/install
 ./build1.py
+cd /var/oscar/web
 
 echo
 echo "We are now going to attept to detect your USB barcode scanner."
@@ -108,6 +109,8 @@ echo "Be sure it is UNPLUGED, then press <enter>."
 read
 echo "Standby..."
 sleep 2
+rm ~/before.txt
+rm ~/after.txt
 ls -1 /dev/input > ~/before.txt
 sleep 1
 echo
@@ -134,6 +137,7 @@ usbPlace="${place}${usbPort}"
 echo 
 echo "Set device to: $usbPlace"
 
+cd /etc/oscar/install
 ./build2.py $usbPlace
 
 sed -i "s/79/$webport/g" /etc/oscar.yaml
