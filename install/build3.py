@@ -200,7 +200,9 @@ for rule in new_rules:
 ######################################## Oscar configs
 
 print "Opening file for yaml..."
-filename.touch(exist_ok=True)
+if not os.path.exists('/etc/oscar.yaml'): 
+os.mknod('/etc/oscar.yaml')
+
 oscar_yaml = open('/etc/oscar.yaml', 'w+')
 oscar_yaml.write('''---
 port: 79
