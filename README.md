@@ -1,4 +1,4 @@
-oscar
+oscar (BROKEN BUILD DO NOT USE YET / UNDER CONSTRUCTION!)
 =====
 Below are the excellent notes with links to videos from the original author of Oscar. 
 I can't find a maintained fork, so I have picked this up. The installer should now run
