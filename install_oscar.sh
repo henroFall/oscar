@@ -98,7 +98,7 @@ check_exit_status
 npm install
 check_exit_status
 
-cd /etc/oscar/install
+cd /var/oscar/install
 ./build1.py
 cd /var/oscar/web
 
