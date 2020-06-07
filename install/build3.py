@@ -10,7 +10,7 @@ import re
 import trello
 
 usb_port=sys.argv[1]
-print usb port value is
+print 'usb port value is'
 print usb_port
 
 def run_command(command):
