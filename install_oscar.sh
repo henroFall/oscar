@@ -57,7 +57,13 @@ echo
 echo "This script is tested on Raspbian and Ubuntu 20.04."
 read -p "Press <enter> to begin!"
 echo
-
+echo "Oscar needs a TCP port for a web server. I can use port 80, but"
+echo "that is some pretty prime real estate. You can enter any valid"
+echo "TCP port number here, or press <enter> to use 79."
+read -p "Port number [79]:" webport
+if [ -z "$webport" ]
+then webport=79
+fi
 ######################################## Dependencies
 echo
 echo "We need to install some dependencies. This can take upwards of an"
@@ -84,14 +90,6 @@ chmod +x ./build1.py
 chmod +x ./build2.py
 cd /var/oscar/web
 
-echo
-echo "Oscar needs a TCP port for a web server. I can use port 80, but"
-echo "that is some pretty prime real estate. You can enter any valid"
-echo "TCP port number here, or press <enter> to use 79."
-read -p "Port number [79]:" webport
-if [ -z "$webport" ]
-then webport=79
-fi
 sed -i "s/80/$webport/g" /var/oscar/web/app.js
 check_exit_status
 
