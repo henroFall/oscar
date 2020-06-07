@@ -2,7 +2,7 @@ oscar (BROKEN BUILD DO NOT USE YET / UNDER CONSTRUCTION!)
 =====
 Below are the excellent notes with links to videos from the original author of Oscar. 
 I can't find a maintained fork, so I have picked this up. The installer should now run
-on any modern Debian Linux. It has been tested on Ubuntu 20.04 and Raspbian.
+on any modern Debian Linux. It has been tested on Ubuntu 20.04, 18.04, and Raspbian.
 
 To install this version of Oscar, use this command line:
 
