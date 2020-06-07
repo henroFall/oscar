@@ -191,8 +191,8 @@ new_rules = [
     {'search_term': 'eggs', 'item': 'eggs'},
     {'search_term': 'chips', 'item': 'chips'},
 ]
-os.chdir('/var/oscar')
-import lib.trellodb
+os.chdir('/var/oscar/lib')
+import trellodb
 
 trello_db = lib.trellodb.TrelloDB(trello_api, trello_db_board)
 for rule in new_rules:
