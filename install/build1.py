@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Initial setup script for Oscar. Run it on the device where Oscar will be running.
+"""Initial setup script for Oscar. Called by sh.
 modified by H from the original at https://github.com/danslimmon/oscar"""
 
 import os
