@@ -74,8 +74,6 @@ apt remove nodejs
 rm /usr/bin/node
 apt install sed python-setuptools python-pip git supervisor build-essential nodejs npm -y
 check_exit_status
-ln -s which node /usr/local/bin/node
-check_exit_status
 pip install PyYAML trello==0.9.1 twilio
 check_exit_status
 ######################################## Oscar itself
