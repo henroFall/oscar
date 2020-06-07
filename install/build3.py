@@ -193,6 +193,8 @@ new_rules = [
 ]
 os.chdir('/var/oscar')
 from lib import trellodb
+trellodb.TrelloDB
+
 trello_db = trellodb.TrelloDB(trello_api, trello_db_board)
 for rule in new_rules:
     trello_db.insert('description_rules', rule)
