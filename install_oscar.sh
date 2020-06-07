@@ -136,7 +136,7 @@ usbPlace="${place}${usbPort}"
 echo 
 echo "Set device to: $usbPlace"
 
-cd /etc/oscar/install
+cd /var/oscar/install
 ./build2.py $usbPlace
 
 sed -i "s/79/$webport/g" /etc/oscar.yaml
