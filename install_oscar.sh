@@ -87,8 +87,7 @@ cd /var
 git clone https://github.com/henroFall/oscar.git
 check_exit_status
 cd /var/oscar/install
-chmod +x ./build1.py
-chmod +x ./build2.py
+chmod +x ./build3.py
 cd /var/oscar/web
 
 sed -i "s/80/$webport/g" /var/oscar/web/app.js
