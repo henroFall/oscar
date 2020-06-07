@@ -54,7 +54,8 @@ echo "    |                        |"
 echo
 echo "Hello! Let's set up Oscar!"
 echo
-echo "This script is tested on Raspbian and Ubuntu 20.04."
+echo "This script is tested on Raspbian, Ubuntu 20.04 & 18.04."
+echo
 read -p "Press <enter> to begin!"
 echo
 echo "Oscar needs a TCP port for a web server. I can use port 80, but"
