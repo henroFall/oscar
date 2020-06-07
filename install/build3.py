@@ -241,15 +241,15 @@ stdout_logfile=/var/log/supervisor/oscar_scan.log
 redirect_stderr=true''')
 sup_oscar_scan.close()
 
-#sup_oscar_web = open('/etc/supervisor/conf.d/oscar_web.conf', 'w+')
-#sup_oscar_web.write('''[program:oscar_web]
-#
-#command=/usr/local/bin/node --inspect /var/oscar/web/app.js
-#directory=/var/oscar/web
-#stdout_logfile=/var/log/supervisor/oscar_web.log
-#redirect_stderr=true''')
-#sup_oscar_web.close()
-echo File closed.
+sup_oscar_web = open('/etc/supervisor/conf.d/oscar_web.conf', 'w+')
+sup_oscar_web.write('''[program:oscar_web]
+
+command=/usr/local/bin/node --inspect /var/oscar/web/app.js
+directory=/var/oscar/web
+stdout_logfile=/var/log/supervisor/oscar_web.log
+redirect_stderr=true''')
+sup_oscar_web.close()
+print 'File closed.'
 print
 print '############################################################'
 print
