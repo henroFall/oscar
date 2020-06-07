@@ -96,6 +96,8 @@ check_exit_status
 npm install
 check_exit_status
 
+echo "OK... Now we are going to stitch together all of the magic parts..."
+echo
 cd /var/oscar/install
 ./build1.py
 cd /var/oscar/web
@@ -106,8 +108,8 @@ echo "Be sure it is UNPLUGED, then press <enter>."
 read
 echo "Standby..."
 sleep 2
-rm ~/before.txt
-rm ~/after.txt
+rm -f ~/before.txt
+rm -f ~/after.txt
 ls -1 /dev/input > ~/before.txt
 sleep 1
 echo

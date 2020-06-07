@@ -1,3 +1,7 @@
+#!/usr/bin/env python
+"""Second setup script for Oscar. Called by sh.
+modified by H from the original at https://github.com/danslimmon/oscar"""
+
 ######################################## Scanner
 import os
 import sys
