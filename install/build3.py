@@ -192,10 +192,9 @@ new_rules = [
     {'search_term': 'chips', 'item': 'chips'},
 ]
 os.chdir('/var/oscar')
-from lib import trellodb
-trellodb.TrelloDB()
+import lib.trellodb
 
-trello_db = trellodb.TrelloDB(trello_api, trello_db_board)
+trello_db = lib.trellodb.TrelloDB(trello_api, trello_db_board)
 for rule in new_rules:
     trello_db.insert('description_rules', rule)
 
