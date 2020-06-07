@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 """Initial setup script for Oscar. Called by sh.
-modified by H from the original at https://github.com/danslimmon/oscar"""
+modified by H from the original at https://github.com/danslimmon/oscar .
+This one is at https://github.com/henroFall/oscar ."""
 
 import os
 import sys
@@ -12,6 +13,15 @@ usb_port=sys.argv[1]
 print usb port value is: 
 print usb_port
 
+def run_command(command):
+    p = subprocess.Popen(command.split(), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    for line in iter(p.stdout.readline, ''):
+        print line,
+######################################## Initial checks
+if os.getuid() != 0:
+    print "This script should be run as root on the target device. Aborting."
+    print
+    sys.exit(1)
 ######################################## Digit-Eyes
 print "You need accounts with a few APIs to use Oscar. First of all,"
 print "go to"
