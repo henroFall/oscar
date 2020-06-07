@@ -28,7 +28,6 @@ if os.getuid() != 0:
     print
     sys.exit(1)
 
-
 ######################################## Digit-Eyes
 print "You need accounts with a few APIs to use Oscar. First of all,"
 print "go to"
