@@ -6,7 +6,10 @@ import os
 import sys
 import subprocess
 import re
+import trello
+
 usb_port=sys.argv[1]
+print usb port value is: 
 print usb_port
 
 ######################################## Digit-Eyes
@@ -51,6 +54,7 @@ print "And now create a board called 'oscar_db', and enter its URL here:"
 print
 trello_db_board_url = raw_input('Trello DB board URL: ')
 
+# Get the board IDs from their URLs
 # Get the board IDs from their URLs
 m = re.search('/b/([^/]+)', trello_grocery_board_url)
 trello_grocery_board = m.group(1)
@@ -124,7 +128,6 @@ if scanner_device == '':
     scanner_device = '/dev/input/event0'
 
 ######################################## Create the appropriate Trello lists
-import trello
 trello_api = trello.TrelloApi(trello_app_key)
 trello_api.set_token(trello_token)
 # Grocery list
