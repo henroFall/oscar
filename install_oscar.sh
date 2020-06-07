@@ -79,7 +79,7 @@ check_exit_status
 cd /var
 git clone https://github.com/henroFall/oscar.git
 check_exit_status
-cd /var/oscar
+cd /var/oscar/install
 chmod +x ./build1.py
 chmod +x ./build2.py
 cd /var/oscar/web
