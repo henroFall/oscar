@@ -200,7 +200,8 @@ for rule in new_rules:
 ######################################## Oscar configs
 
 print "Opening file for yaml..."
-oscar_yaml = open('/etc/oscar.yaml', 'w')
+filename.touch(exist_ok=True)
+oscar_yaml = open('/etc/oscar.yaml', 'w+')
 oscar_yaml.write('''---
 port: 79
 scanner_device: '{scanner_device}'
@@ -230,7 +231,7 @@ barcode_api: digiteyes
 '''.format(**locals()))
 oscar_yaml.close()
 
-sup_oscar_scan = open('/etc/supervisor/conf.d/oscar_scan.conf', 'w')
+sup_oscar_scan = open('/etc/supervisor/conf.d/oscar_scan.conf', 'w+')
 sup_oscar_scan.write('''[program:oscar_scan]
 
 command=python /var/oscar/scan.py
@@ -238,7 +239,7 @@ stdout_logfile=/var/log/supervisor/oscar_scan.log
 redirect_stderr=true''')
 sup_oscar_scan.close()
 
-sup_oscar_web = open('/etc/supervisor/conf.d/oscar_web.conf', 'w')
+sup_oscar_web = open('/etc/supervisor/conf.d/oscar_web.conf', 'w+')
 sup_oscar_web.write('''[program:oscar_web]
 
 command=/usr/local/bin/node --inspect /var/oscar/web/app.js
