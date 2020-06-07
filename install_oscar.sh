@@ -23,7 +23,7 @@ check_exit_status() {
     fi
 echo
 }
-
+echo "0"
 rootCheck
 echo "1"
 echo "               ____ "
