@@ -23,16 +23,14 @@ check_exit_status() {
     fi
 echo
 }
-echo "0"
 rootCheck
-echo "1"
 echo "               ____ "
 echo "   ___________//__\\\\__________"
 echo "  /___________________________\\"
 echo "  I___I___I___I___I___I___I___I"
 echo "        < ,wWWWWwwWWWWw, >"
 echo "       <  WW( 0 )( 0 )WW  >"
-echo "      <      \'-\'  \'-\'      >"
+echo "      <      '-'  '-'      >"
 echo "     <    ,._.--\"\"--._.,    >"
 echo "     <   \' \\   .--.   / \`   >"
 echo "      <     \'./__\\_\\.'     >"
