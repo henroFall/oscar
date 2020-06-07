@@ -59,8 +59,8 @@ read -p "Press <enter> to begin!"
 echo
 echo "Oscar needs a TCP port for a web server. I can use port 80, but"
 echo "that is some pretty prime real estate. You can enter any valid"
-echo "TCP port number here, or press <enter> to use 79."
-read -p "Port number [79]:" webport
+echo "TCP port number here, or press <enter> to use 8543."
+read -p "Port number [8543]:" webport
 if [ -z "$webport" ]
 then webport=79
 fi
