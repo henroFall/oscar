@@ -57,6 +57,7 @@ echo
 echo "Hello! Let's set up Oscar!"
 echo
 echo "This script is tested on Raspbian and Ubuntu 20.04."
+read -p "Press <enter> to begin!"
 echo
 
 ######################################## Dependencies
