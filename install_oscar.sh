@@ -54,7 +54,8 @@ echo "    |                        |"
 echo
 echo "Hello! Let's set up Oscar!"
 echo
-echo "This script is tested on Raspbian and Ubuntu 20.04."
+echo "This script is tested on Raspbian, Ubuntu 20.04 & 18.04."
+echo
 read -p "Press <enter> to begin!"
 echo
 echo "Oscar needs a TCP port for a web server. I can use port 80, but"
@@ -62,7 +63,7 @@ echo "that is some pretty prime real estate. You can enter any valid"
 echo "TCP port number here, or press <enter> to use 8543."
 read -p "Port number [8543]:" webport
 if [ -z "$webport" ]
-then webport=79
+then webport=8543
 fi
 ######################################## Dependencies
 echo
