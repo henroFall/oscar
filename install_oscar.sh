@@ -82,7 +82,11 @@ check_exit_status
 cd /var
 git clone https://github.com/henroFall/oscar.git
 check_exit_status
+cd /var/oscar
+chmod +x ./build1.py
+chmod +x ./build2.py
 cd /var/oscar/web
+
 
 echo
 echo "Oscar needs a TCP port for a web server. I can use port 80, but"
@@ -98,7 +102,7 @@ check_exit_status
 npm install
 check_exit_status
 
-python build1.py
+./build1.py
 
 echo
 echo "We are now going to attept to detect your USB barcode scanner."
@@ -132,7 +136,7 @@ usbPlace="${place}${usbPort}"
 echo 
 echo "Set device to: $usbPlace"
 
-python build2.py $usbPlace
+./build2.py $usbPlace
 
 sed -i "s/79/$webport/g" /etc/oscar.yaml
 
