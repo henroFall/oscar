@@ -1,7 +1,7 @@
 #!/bin/bash
 
 rootCheck() {
-    if ! [ $(id -u) = 0 ]; 
+    if ! [ $(id -u) = 0 ]
     then
         echo -e "\e[41m I am not root! Run with SUDO. \e[0m"
         exit 1
@@ -16,8 +16,8 @@ check_exit_status() {
         read -p "The last command exited with an error. Exit script? (yes/no)" answer
         if [ "$answer" == "yes" ]
         then
-		    echo -e "EXITING. \e[0m"
-			echo
+            echo -e "EXITING. \e[0m"
+            echo
             exit 1
         fi
     fi
