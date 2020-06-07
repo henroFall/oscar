@@ -10,7 +10,7 @@ import re
 import trello
 
 usb_port=sys.argv[1]
-print usb port value is: 
+print usb port value is
 print usb_port
 
 def run_command(command):
@@ -199,6 +199,7 @@ for rule in new_rules:
 
 ######################################## Oscar configs
 
+print "Opening file for yaml..."
 oscar_yaml = open('/etc/oscar.yaml', 'w')
 oscar_yaml.write('''---
 port: 79
@@ -245,7 +246,7 @@ directory=/var/oscar/web
 stdout_logfile=/var/log/supervisor/oscar_web.log
 redirect_stderr=true''')
 sup_oscar_web.close()
-
+echo File closed.
 print
 print '############################################################'
 print
