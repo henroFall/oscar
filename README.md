@@ -1,5 +1,15 @@
 oscar
 =====
+Below are the excellent notes with links to videos from the original author of Oscar. 
+I can't find a maintained fork, so I have picked this up. The installer should now run
+on any modern Debian Linux. It has been tested on Ubuntu 20.04 and Raspbian.
+
+To install this version of Oscar, use this command line:
+
+`wget -N https://github.com/henroFall/oscar/blob/master/install_oscar.sh && sudo chmod +x install_oscar.sh && sudo ./install_oscar.sh`
+
+From the author:
+----------------
 
 Oscar automatically adds things to your grocery list when you run out. You
 just scan the item's barcode on its way into the trash.
@@ -48,4 +58,4 @@ now that I don't have a Raspberry Pi to test on anymore.
 [raspbian]: http://www.raspbian.org/
 [scanner-amazon]: http://www.amazon.com/gp/product/B0085707Z8/ref=oh_details_o03_s00_i03?ie=UTF8&psc=1
 [twitter]: https://twitter.com/danslimmon
-[oscar-issues]: https://github.com/danslimmon/oscar/issues
+[oscar-issues]: (not maintained anymore, use issues here instead if you want) https://github.com/danslimmon/oscar/issues
