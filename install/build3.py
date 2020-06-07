@@ -201,7 +201,7 @@ for rule in new_rules:
 
 print "Opening file for yaml..."
 if not os.path.exists('/etc/oscar.yaml'): 
-os.mknod('/etc/oscar.yaml')
+    os.mknod('/etc/oscar.yaml')
 
 oscar_yaml = open('/etc/oscar.yaml', 'w+')
 oscar_yaml.write('''---
@@ -241,14 +241,14 @@ stdout_logfile=/var/log/supervisor/oscar_scan.log
 redirect_stderr=true''')
 sup_oscar_scan.close()
 
-sup_oscar_web = open('/etc/supervisor/conf.d/oscar_web.conf', 'w+')
-sup_oscar_web.write('''[program:oscar_web]
-
-command=/usr/local/bin/node --inspect /var/oscar/web/app.js
-directory=/var/oscar/web
-stdout_logfile=/var/log/supervisor/oscar_web.log
-redirect_stderr=true''')
-sup_oscar_web.close()
+#sup_oscar_web = open('/etc/supervisor/conf.d/oscar_web.conf', 'w+')
+#sup_oscar_web.write('''[program:oscar_web]
+#
+#command=/usr/local/bin/node --inspect /var/oscar/web/app.js
+#directory=/var/oscar/web
+#stdout_logfile=/var/log/supervisor/oscar_web.log
+#redirect_stderr=true''')
+#sup_oscar_web.close()
 echo File closed.
 print
 print '############################################################'
