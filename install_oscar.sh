@@ -72,6 +72,7 @@ echo "you're ready. Press 'Ctrl+C' to cancel."
 read 
 echo
 echo "Stripping nodejs & npm from system and reinstalling with other dependencies..."
+echo
 apt update
 apt remove npm
 apt remove nodejs-legacy
@@ -79,7 +80,7 @@ apt remove nodejs
 rm /usr/bin/node
 apt install sed python-setuptools python-pip git supervisor build-essential nodejs npm -y
 check_exit_status
-pip install PyYAML trello==0.9.1 twilio
+pip install PyYAML --no-cache-dir trello==0.9.1 twilio
 check_exit_status
 ######################################## Oscar itself
 cd /var
@@ -92,16 +93,8 @@ cd /var/oscar/web
 
 sed -i "s/80/$webport/g" /var/oscar/web/app.js
 check_exit_status
-
 npm install
 check_exit_status
-
-echo "OK... Now we are going to stitch together all of the magic parts..."
-echo
-cd /var/oscar/install
-./build1.py
-cd /var/oscar/web
-
 echo
 echo "We are now going to attept to detect your USB barcode scanner."
 echo "Be sure it is UNPLUGED, then press <enter>."
@@ -137,7 +130,13 @@ echo
 echo "Set device to: $usbPlace"
 
 cd /var/oscar/install
-./build2.py $usbPlace
+echo "OK... Now we are going to stitch together all of the magic parts..."
+echo
+cd /var/oscar/install
+#./build1.py
+./build3.py $usbPlace
+
+cd /var/oscar/web
 
 sed -i "s/79/$webport/g" /etc/oscar.yaml
 
