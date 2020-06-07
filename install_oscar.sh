@@ -134,11 +134,13 @@ echo "OK... Now we are going to stitch together all of the magic parts..."
 echo
 cd /var/oscar/install
 #./build1.py
+supervisorctl reload
+check_exit_status
 ./build3.py $usbPlace
 
 cd /var/oscar/web
 
 sed -i "s/79/$webport/g" /etc/oscar.yaml
-
 supervisorctl reload
 check_exit_status
+
