@@ -88,7 +88,6 @@ cd /var
 git clone https://github.com/henroFall/oscar.git
 check_exit_status
 cd /var/oscar/install
-chmod +x ./build3.py
 cd /var/oscar/web
 
 sed -i "s/80/$webport/g" /var/oscar/web/app.js
@@ -133,14 +132,13 @@ cd /var/oscar/install
 echo "OK... Now we are going to stitch together all of the magic parts..."
 echo
 cd /var/oscar/install
-#./build1.py
 supervisorctl reload
 check_exit_status
-./build3.py $usbPlace
+chmod +x ./build.py
+./build.py $usbPlace
 
 cd /var/oscar/web
 
 sed -i "s/79/$webport/g" /etc/oscar.yaml
 supervisorctl reload
 check_exit_status
-

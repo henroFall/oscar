@@ -265,7 +265,7 @@ while True:
         desc = u.get_description(barcode)
         print "Received description '{0}' for barcode {1}".format(desc, unicode(barcode))
     except CodeInvalid:
-        print "Barcode {0} not recognized as a UPC; creating learning opportunity".format(unicode(barcode))
+        print "Barcode {0} not recognized as a UPC; creating learning opportunity".format(unicode(barcode)).encode('utf-8')
         try:
             opp = create_barcode_opp(trello_db, barcode, desc)
         except:
