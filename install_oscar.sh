@@ -131,8 +131,6 @@ cd /var/oscar/install
 echo "OK... Now we are going to stitch together all of the magic parts..."
 echo
 cd /var/oscar/install
-wget -N https://raw.githubusercontent.com/henroFall/oscar/master/lib/trellodb.py
-check_exit_status
 supervisorctl reload
 check_exit_status
 chmod +x ./build.py

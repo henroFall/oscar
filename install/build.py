@@ -8,7 +8,7 @@ import sys
 import subprocess
 import re
 import trello
-from .trellodb import TrelloDB
+from lib import trellodb
 
 usb_port=sys.argv[1]
 print "usb port value is"
