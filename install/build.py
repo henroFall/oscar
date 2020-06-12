@@ -259,7 +259,9 @@ print '    /var/lib/supervisor/log/oscar_scan.log'
 print '    /var/lib/supervisor/log/oscar_web.log'
 print
 print 'And report any bugs at https://github.com/henrofall/oscar/issues.'
-print 'Oscar 0.1.1 was modified by H from the original danslimmon/oscar.'
+print 'Oscar 0.1.x was modified by H from the original danslimmon/oscar.'
+print 'This also includes a bugfix by roopkeed.'
+print
 print 'All credit to danslimmon. All I did was hack it up to make it'
 print 'work again on Raspberian and hopefully support more Linux OSes.'
 print
