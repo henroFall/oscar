@@ -58,13 +58,6 @@ echo "This script is tested on Raspbian, Ubuntu 20.04 & 18.04."
 echo
 read -p "Press <enter> to begin!"
 echo
-echo "Oscar needs a TCP port for a web server. I can use port 80, but"
-echo "that is some pretty prime real estate. You can enter any valid"
-echo "TCP port number here, or press <enter> to use 8543."
-read -p "Port number [8543]:" webport
-if [ -z "$webport" ]
-then webport=8543
-fi
 ######################################## Dependencies
 echo
 echo "We need to install some dependencies. This can take upwards of an"
@@ -83,13 +76,23 @@ apt install sed python-setuptools python-pip git supervisor build-essential node
 check_exit_status
 pip install PyYAML --no-cache-dir trello==0.9.1 twilio
 check_exit_status
+wget -N https://raw.githubusercontent.com/henroFall/oscar/master/lib/trellodb.py
+check_exit_status
+
 ######################################## Oscar itself
 cd /var
 git clone https://github.com/henroFall/oscar.git
 check_exit_status
 cd /var/oscar/install
 cd /var/oscar/web
-
+######################################## Web port
+echo "Oscar needs a TCP port for a web server. I can use port 80, but"
+echo "that is some pretty prime real estate. You can enter any valid"
+echo "TCP port number here, or press <enter> to use 8543."
+read -p "Port number [8543]:" webport
+if [ -z "$webport" ]
+then webport=8543
+fi
 sed -i "s/80/$webport/g" /var/oscar/web/app.js
 check_exit_status
 npm install
