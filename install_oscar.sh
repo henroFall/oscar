@@ -76,14 +76,10 @@ apt install sed python-setuptools python-pip git supervisor build-essential node
 check_exit_status
 pip install PyYAML --no-cache-dir trello==0.9.1 twilio
 check_exit_status
-wget -N https://raw.githubusercontent.com/henroFall/oscar/master/lib/trellodb.py
-check_exit_status
-
 ######################################## Oscar itself
 cd /var
 git clone https://github.com/henroFall/oscar.git
 check_exit_status
-cd /var/oscar/install
 cd /var/oscar/web
 ######################################## Web port
 echo "Oscar needs a TCP port for a web server. I can use port 80, but"
@@ -135,6 +131,8 @@ cd /var/oscar/install
 echo "OK... Now we are going to stitch together all of the magic parts..."
 echo
 cd /var/oscar/install
+wget -N https://raw.githubusercontent.com/henroFall/oscar/master/lib/trellodb.py
+check_exit_status
 supervisorctl reload
 check_exit_status
 chmod +x ./build.py
