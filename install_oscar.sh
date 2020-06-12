@@ -61,8 +61,9 @@ echo
 ######################################## Dependencies
 echo
 echo "We need to install some dependencies. This can take upwards of an"
-echo "hour, since it involves compiling stuff. Ready? Press <enter> when"
-echo "you're ready. Press 'Ctrl+C' to cancel."
+echo "hour on a Raspberry Pi, since it involves compiling stuff."
+echo "It only takes about a minute on an x86. Ready?"
+echo "Press <enter> when you're ready. Press 'Ctrl+C' to cancel."
 read 
 echo
 echo "Stripping nodejs & npm from system and reinstalling with other dependencies..."
@@ -84,7 +85,7 @@ cd /var/oscar/web
 ######################################## Web port
 echo "Oscar needs a TCP port for a web server. I can use port 80, but"
 echo "that is some pretty prime real estate. You can enter any valid"
-echo "TCP port number here, or press <enter> to use 8543."
+echo "TCP port number here, or press <enter> to use the default: 8543."
 read -p "Port number [8543]:" webport
 if [ -z "$webport" ]
 then webport=8543
@@ -94,7 +95,7 @@ check_exit_status
 npm install
 check_exit_status
 echo
-echo "We are now going to attept to detect your USB barcode scanner."
+echo "OK! Now, we are now going to attept to detect your USB barcode scanner."
 echo "Be sure it is UNPLUGED, then press <enter>."
 read
 echo "Standby..."
@@ -121,15 +122,13 @@ else
       echo "I see a new device attached to $usbPort, so we are going to use that."
 fi
 echo
-
 place="/dev/input/"
 usbPlace="${place}${usbPort}"
-echo 
 echo "Set device to: $usbPlace"
-
 cd /var/oscar/install
-echo "OK... Now we are going to stitch together all of the magic parts..."
+check_exit_status
 echo
+echo "Now we are going to stitch together all of the magic parts..."
 cd /var/oscar/install
 supervisorctl reload
 check_exit_status
