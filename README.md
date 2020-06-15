@@ -4,6 +4,15 @@ Below are the excellent notes with links to videos from the original author of O
 I can't find a maintained fork, so I have picked this up. The installer should now run
 on any modern Debian Linux. It has been tested on Ubuntu 20.04, 18.04, and Raspbian.
 
+This version still relies on Python 2. I have found that the Trello module used here
+does not work in Python 3. I need to research what Python3 to Trello modules exist, and
+what code changes in Oscar we'll need to make that work. I think I have until the end of
+the year to figure that out. 
+
+I have that project going over at https://github.com/henroFall/oscar3 .
+
+Install Oscar
+-------------
 To install this version of Oscar, use this command line:
 
 `wget -N https://raw.githubusercontent.com/henroFall/oscar3/development/install_oscar.sh && sudo chmod +x install_oscar.sh && sudo ./install_oscar.sh`
