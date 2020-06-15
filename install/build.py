@@ -187,7 +187,7 @@ new_rules = [
     {'search_term': 'eggs', 'item': 'eggs'},
     {'search_term': 'chips', 'item': 'chips'},
 ]
-os.chdir('/var/oscar/lib')
+#os.chdir('/var/oscar/lib')
 
 trello_db = trellodb.TrelloDB(trello_api, trello_db_board)
 for rule in new_rules:
@@ -262,8 +262,7 @@ print 'And report any bugs at https://github.com/henrofall/oscar/issues.'
 print 'Oscar 0.1.x was modified by H from the original danslimmon/oscar.'
 print 'This also includes a bugfix by roopkeed.'
 print
-print 'All credit to danslimmon. All I did was hack it up to make it'
-print 'work again on Raspberian and hopefully support more Linux OSes.'
+print 'All credit to danslimmon for creating this excellent thing.'
 print
 print 'To add new product description keywords, the current method is to'
 print 'edit the oscar_db board directly.'

@@ -52,48 +52,22 @@ echo "    || | | | | | | | | | | | |"
 echo "    |\\_/ \\_/ \\_/ \\_/ \\_/ \\_/ |"
 echo "    |                        |"
 echo
-echo "Hello! Let's set up Oscar!"
+echo "Hello! Let's set up Oscar3!"
 echo
 echo "This script is tested on Raspbian, Ubuntu 20.04 & 18.04."
 echo
 read -p "Press <enter> to begin!"
 echo
-######################################## Dependencies
-echo
-echo "We need to install some dependencies. This can take upwards of an"
-echo "hour on a Raspberry Pi, since it involves compiling stuff."
-echo "It only takes about a minute on an x86. Ready?"
-echo "Press <enter> when you're ready. Press 'Ctrl+C' to cancel."
-read 
-echo
-echo "Stripping nodejs & npm from system and reinstalling with other dependencies..."
-echo
-apt update
-apt remove npm
-apt remove nodejs-legacy
-apt remove nodejs
-rm /usr/bin/node
-apt install sed python-setuptools python-pip git supervisor build-essential nodejs npm -y
-check_exit_status
-pip install PyYAML --no-cache-dir trello==0.9.1 twilio
-check_exit_status
-######################################## Oscar itself
-cd /var
-git clone https://github.com/henroFall/oscar.git
-check_exit_status
-cd /var/oscar/web
 ######################################## Web port
-echo "Oscar needs a TCP port for a web server. I can use port 80, but"
-echo "that is some pretty prime real estate. You can enter any valid"
-echo "TCP port number here, or press <enter> to use the default: 8543."
+echo "Oscar3 needs a TCP port for a web server. I can use port 80, but"
+echo "that is some pretty prime real estate for a TRASH sCANer. You"
+echo "can enter any valid TCP port number here, or press <enter> to"
+echo "use 8543, the default."
 read -p "Port number [8543]:" webport
 if [ -z "$webport" ]
 then webport=8543
 fi
-sed -i "s/80/$webport/g" /var/oscar/web/app.js
-check_exit_status
-npm install
-check_exit_status
+######################################## Scanner Detect
 echo
 echo "OK! Now, we are now going to attept to detect your USB barcode scanner."
 echo "Be sure it is UNPLUGED, then press <enter>."
@@ -125,11 +99,43 @@ echo
 place="/dev/input/"
 usbPlace="${place}${usbPort}"
 echo "Set device to: $usbPlace"
-cd /var/oscar/install
+
+######################################## Dependencies
+echo
+echo "We need to install some dependencies and stitch together all the magic."
+echo "This can take upwards of anhour on a Raspberry Pi, since it involves"
+echo "compiling stuff. It only takes about a minute on a decent x86."
+echo "Press <enter> when you're ready. Press 'Ctrl+C' to cancel."
+read 
+echo
+echo "Stripping nodejs & npm from system and reinstalling with other dependencies..."
+echo
+apt update
+apt remove -y npm
+apt remove -y nodejs-legacy
+apt remove -y nodejs
+rm /usr/bin/node
+apt install sed curl git supervisor build-essential python2 nodejs npm -y
+check_exit_status
+curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py
+check_exit_status
+python2 get-pip.py
+check_exit_status
+pip install PyYAML --no-cache-dir trello==0.9.1 twilio
+check_exit_status
+######################################## Oscar itself
+cd /var
+git clone -b development https://github.com/henroFall/oscar3.git oscar
+check_exit_status
+cd /var/oscar/web
+######################################## Web
+sed -i "s/80/$webport/g" /var/oscar/web/app.js
+check_exit_status
+npm install
 check_exit_status
 echo
-echo "Now we are going to stitch together all of the magic parts..."
 cd /var/oscar/install
+check_exit_status
 supervisorctl reload
 check_exit_status
 chmod +x ./build.py
@@ -140,3 +146,5 @@ cd /var/oscar/web
 sed -i "s/79/$webport/g" /etc/oscar.yaml
 supervisorctl reload
 check_exit_status
+rm -f ~/before.txt
+rm -f ~/after.txt
