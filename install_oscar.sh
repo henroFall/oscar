@@ -109,7 +109,6 @@ echo "Press <enter> when you're ready. Press 'Ctrl+C' to cancel."
 read 
 echo
 echo "Stripping nodejs & npm from system and reinstalling with other dependencies..."
-echo
 apt update
 check_exit_status
 apt remove -y npm
@@ -119,7 +118,18 @@ check_exit_status
 apt remove -y nodejs
 check_exit_status
 rm /usr/bin/node
-apt install sed curl git supervisor build-essential python2 nodejs npm -y
+echo
+if [[ $(lsb_release -rs) == "20.04" ]]; then 
+
+       echo "Ubuntu 20.04 detected, installing package: python2."
+       apt install python2
+	   check_exit_status
+else
+       echo "$(lsb_release -rs) detected. Installing package: python."
+	   apt install python
+	   check_exit_status
+fi
+apt install sed curl git supervisor build-essential nodejs npm -y
 check_exit_status
 curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py
 check_exit_status
