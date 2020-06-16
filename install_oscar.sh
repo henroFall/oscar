@@ -115,19 +115,19 @@ echo
 echo "You should almost for sure strip nodejs and node from the system before"
 read -ep "installing Oscar. Is that OK to do now [yes]?" yesno
 if [[ $yesno == "" ]]; then
-       yesno="yes"
+       yesno='yes'
 fi	
 if [[ $yesno == "y" ]]; then
-       yesno="yes"
+       yesno='yes'
 fi
 if [[ $yesno == "Yes" ]]; then
-       yesno="yes"
+       yesno='yes'
 fi
 if [[ $yesno == "YES" ]]; then
-       yesno="yes"
+       yesno='yes'
 fi
 if [[ $yesno == "yES" ]]; then
-       yesno="yes"
+       yesno='yes'
 fi
 apt update
 if [[ $yesno == "yes" ]]; then
