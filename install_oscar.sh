@@ -114,16 +114,23 @@ echo "compiling stuff. It only takes about a minute on a decent x86."
 echo "Press <enter> when you're ready. Press 'Ctrl+C' to cancel."
 read 
 echo
-echo "Stripping nodejs & npm from system and reinstalling with other dependencies..."
+echo "It is suggested that you strip nodejs and node from the system before"
+read -ep "installing Oscar. Is that OK to do now? (Yes/No)?" yesno
+if [[ $yesno == "" ]]; then
+       yesno == "yes"
+fi	   
 apt update
-check_exit_status
-apt remove -y npm
-check_exit_status
-apt remove -y nodejs-legacy
-check_exit_status
-apt remove -y nodejs
-check_exit_status
-rm /usr/bin/node
+if [[ $yesno == "yes" ]]; then
+       echo "Stripping nodejs & npm from system and reinstalling with other dependencies..."
+	   check_exit_status
+	   apt remove -y npm
+	   check_exit_status
+	   apt remove -y nodejs-legacy
+	   check_exit_status
+	   apt remove -y nodejs
+	   check_exit_status
+	   rm /usr/bin/node
+fi
 echo
 if [[ $(lsb_release -rs) == "20.04" ]]; then 
 
@@ -150,6 +157,7 @@ pip install PyYAML --no-cache-dir trello==0.9.1 twilio
 check_exit_status
 ######################################## Oscar itself
 cd /var
+if [ -d "/var/oscar" ]; then rm -Rf /var/oscar; fi
 git clone https://github.com/henroFall/oscar.git
 check_exit_status
 cd /var/oscar/web
