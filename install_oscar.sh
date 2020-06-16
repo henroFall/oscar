@@ -54,7 +54,7 @@ echo "    || | | | | | | | | | | | |"
 echo "    |\\_/ \\_/ \\_/ \\_/ \\_/ \\_/ |"
 echo "    |                        |"
 echo
-echo "Hello! Let's set up Oscar3!"
+echo "Hello! Let's set up Oscar!"
 echo
 echo "This script is tested on Raspbian, Ubuntu 20.04 & 18.04."
 echo
