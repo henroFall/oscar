@@ -125,11 +125,11 @@ echo
 if [[ $(lsb_release -rs) == "20.04" ]]; then 
 
        echo "Ubuntu 20.04 detected, installing package: python2."
-       apt install python2
+       apt install -y python2
 	   check_exit_status
 else
        echo "$(lsb_release -rs) detected. Installing package: python."
-	   apt install python
+	   apt install -y python
 	   check_exit_status
 fi
 apt install -y sed curl git supervisor build-essential nodejs npm
