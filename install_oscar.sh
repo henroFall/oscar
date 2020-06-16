@@ -24,7 +24,7 @@ check_exit_status() {
 echo
 }
 
-#####################################################
+####################################################
 rootCheck
 echo "               ____ "
 echo "   ___________//__\\\\__________"
@@ -153,6 +153,7 @@ fi
 check_exit_status
 pip install PyYAML --no-cache-dir trello==0.9.1 twilio
 check_exit_status
+
 ######################################## Oscar itself
 cd /var
 if [ -d "/var/oscar" ]; then rm -Rf /var/oscar; fi
