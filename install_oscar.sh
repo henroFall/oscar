@@ -129,7 +129,7 @@ else
 	   apt install python
 	   check_exit_status
 fi
-apt install sed curl git supervisor build-essential nodejs npm -y
+apt install -y sed curl git supervisor build-essential nodejs npm
 check_exit_status
 curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py
 check_exit_status
