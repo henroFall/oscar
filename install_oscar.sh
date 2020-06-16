@@ -111,9 +111,13 @@ echo
 echo "Stripping nodejs & npm from system and reinstalling with other dependencies..."
 echo
 apt update
+check_exit_status
 apt remove -y npm
+check_exit_status
 apt remove -y nodejs-legacy
+check_exit_status
 apt remove -y nodejs
+check_exit_status
 rm /usr/bin/node
 apt install sed curl git supervisor build-essential python2 nodejs npm -y
 check_exit_status
@@ -125,7 +129,7 @@ pip install PyYAML --no-cache-dir trello==0.9.1 twilio
 check_exit_status
 ######################################## Oscar itself
 cd /var
-git clone -b development https://github.com/henroFall/oscar3.git oscar
+git clone https://github.com/henroFall/oscar.git
 check_exit_status
 cd /var/oscar/web
 ######################################## Web
