@@ -137,7 +137,12 @@ apt -y install sed curl git supervisor build-essential nodejs npm
 check_exit_status
 curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py
 check_exit_status
+
+if [[ $(lsb_release -rs) == "20.04" ]]; then 
 python2 get-pip.py
+else
+python get-pip.py
+fi
 check_exit_status
 pip install PyYAML --no-cache-dir trello==0.9.1 twilio
 check_exit_status
