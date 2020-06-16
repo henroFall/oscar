@@ -62,6 +62,7 @@ echo "This script is tested on Raspbian, Ubuntu 20.04 & 18.04."
 echo
 read -p "Press <enter> to begin!"
 echo
+
 ######################################## Web port
 echo "Oscar3 needs a TCP port for a web server. I can use port 80, but"
 echo "that is some pretty prime real estate for a TRASH sCANer. You"
@@ -71,6 +72,7 @@ read -p "Port number [8543]:" webport
 if [ -z "$webport" ]
 then webport=8543
 fi
+
 ######################################## Scanner Detect
 echo
 echo "OK! Now, we are now going to attept to detect your USB barcode scanner."
