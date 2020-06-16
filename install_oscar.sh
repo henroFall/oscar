@@ -112,8 +112,8 @@ echo "compiling stuff. It only takes about a minute on a decent x86."
 echo "Press <enter> when you're ready. Press 'Ctrl+C' to cancel."
 read 
 echo
-echo "It is suggested that you strip nodejs and node from the system before"
-read -ep "installing Oscar. Is that OK to do now? (Yes/No)?" yesno
+echo "You should almost for sure strip nodejs and node from the system before"
+read -ep "installing Oscar. Is that OK to do now [yes]?" yesno
 if [[ $yesno == "" ]]; then
        yesno == "yes"
 fi	   
@@ -170,10 +170,11 @@ check_exit_status
 supervisorctl reload
 check_exit_status
 chmod +x ./build.py
-./build.py $usbPlace
-
+if [[ $(lsb_release -rs) == "20.04" ]]; then 
+python2 ./build.py $usbPlace
+else python ./build.py $usbPlace
+fi
 cd /var/oscar/web
-
 sed -i "s/79/$webport/g" /etc/oscar.yaml
 supervisorctl reload
 check_exit_status
