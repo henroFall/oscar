@@ -117,6 +117,7 @@ echo "You should almost for sure strip nodejs and node from the system before"
 read -ep "installing Oscar. Is that OK to do now [yes]?" yesno
 if [[ $yesno == "" ]]; then
        yesno='yes'
+	   check_exit_status
 fi	
 if [[ $yesno == "y" ]]; then
        yesno='yes'
